@@ -2,16 +2,22 @@
 
 <img src="https://repository-images.githubusercontent.com/299765862/ef7f3600-02c0-11eb-937e-b514287f7049" />
 
-## 2.0.7 Modified for Artillery Sidewinder X1
+# 2.0.7 Modified for Artillery Sidewinder X1
+
+## strictly follows Astral's sidewinder-x1 skr1.4/1.4 turbo installation guide, included as pdf
+## this firmware is for someone like me can't find the 3dwork.io marlin builder to work
+## any difference between you and the guide on hardware will result malfunction.
+
 
 - BTT SKR 1.4 Turbo
-- TMC2209 Stepper Drivers (set to .950)
+- TMC2209 Stepper Drivers (set to .900)
 - Manual Bed Leveling (5 Points)
-- Sensorless Homing
+- No Sensorless Homing
+- No bl touch
 - Babystepping 
 - Working M600
-- Baudrate set to 115200 (TFT and Board must match!)
-- HE1 set to FAN1_PIN
+- Baudrate set to 250000 (TFT and Board must match!)
+- modify version from github labotecno
 
 Recommended: [TFT Firmware by digant](https://www.thingiverse.com/thing:4294049)
 

@@ -70,7 +70,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Ralph Guillou.labotecno)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(elin66alpha)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -120,7 +120,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
@@ -131,11 +131,11 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Sidewinder X1 lab"
+#define CUSTOM_MACHINE_NAME "Sidewinder X1 skr1.4 turbo"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
-#define MACHINE_UUID "ea7727c4-d9c8-4050-b415-f3291ccf93cc"
+//#define MACHINE_UUID "ea7727c4-d9c8-4050-b415-f3291ccf93cc"
 
 // @section extruder
 
@@ -460,7 +460,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 275
+#define HEATER_0_MAXTEMP 315
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -647,13 +647,13 @@
 #endif
 
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
-#define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+#define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
+#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
 
 /**
  * Stepper Drivers
@@ -680,7 +680,7 @@
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
 #define E0_DRIVER_TYPE TMC2209
-//#define E1_DRIVER_TYPE A4988
+#define E1_DRIVER_TYPE TMC2209
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
 //#define E4_DRIVER_TYPE A4988
@@ -734,7 +734,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.52, 80.85, 401.20, 414 } // { 80.52, 80.85, 401.20, 454 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.52, 80.85, 401.20, 454 } // { 80.52, 80.85, 401.20, 454 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -892,7 +892,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-#define BLTOUCH
+// #define BLTOUCH
 
 /**
  * Pressure sensor with a BLTouch-like interface
@@ -1365,9 +1365,9 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-//#define MANUAL_X_HOME_POS 0
-//#define MANUAL_Y_HOME_POS 0
-//#define MANUAL_Z_HOME_POS 0
+// #define MANUAL_X_HOME_POS 0
+// #define MANUAL_Y_HOME_POS 0
+// #define MANUAL_Z_HOME_POS 0
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
 //
@@ -1381,8 +1381,8 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
+  #define Z_SAFE_HOMING_X_POINT 0  // X point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT 0  // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)
@@ -2339,14 +2339,14 @@
  *
  * LED Type. Enable only one of the following two options.
  */
-//#define RGB_LED
+#define RGB_LED
 //#define RGBW_LED
 
 #if EITHER(RGB_LED, RGBW_LED)
-  //#define RGB_LED_R_PIN 34
-  //#define RGB_LED_G_PIN 43
-  //#define RGB_LED_B_PIN 35
-  //#define RGB_LED_W_PIN -1
+  #define RGB_LED_R_PIN P1_21
+  #define RGB_LED_G_PIN P1_19
+  #define RGB_LED_B_PIN P1_23
+  #define RGB_LED_W_PIN -1
 #endif
 
 // Support for Adafruit NeoPixel LED driver
